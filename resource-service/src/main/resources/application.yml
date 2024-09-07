@@ -1,6 +1,6 @@
 spring:
   application:
-    name: ressource-service
+    name: resource-service
   datasource:
     url: jdbc:mysql://localhost:3306/construction_resource?createDatabaseIfNotExist=True
     username: root
