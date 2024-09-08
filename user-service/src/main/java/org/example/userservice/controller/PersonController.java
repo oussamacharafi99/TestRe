@@ -28,6 +28,11 @@ public class PersonController {
     @Autowired
     private AuthenticationManager authenticationManager;
 
+    @PostMapping("/signup")
+    public Person register(@RequestBody Person person ) {
+        return personService.addPerson(person);
+    }
+
 
 
 
