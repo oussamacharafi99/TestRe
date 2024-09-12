@@ -21,7 +21,9 @@ public class ResourceService {
     public Resource save(Resource resource) {
         return resourceRepo.save(resource);
     }
-
+    public List<Resource> getAllResourcesByTaskId(Integer taskId) {
+        return resourceRepo.getAllResourceByTaskId(taskId);
+    }
     public Resource findById(Integer id) {
         Resource resource = resourceRepo.findById(id).orElseThrow();
         Task task = taskRest.getTaskById(resource.getTask_id());

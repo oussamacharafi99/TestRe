@@ -8,6 +8,7 @@ import lombok.Setter;
 import org.example.taskservice.classe.Project;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import java.sql.Time;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -28,7 +29,7 @@ public class Task {
 
     @Column(name = "heurs")
     @DateTimeFormat(pattern = "HH:mm")
-    private LocalTime heurs;
+    private Time heurs;
 
     @Column(name = "startDate")
     @DateTimeFormat(pattern = "yyyy-MM-dd")

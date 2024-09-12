@@ -7,6 +7,7 @@ import org.example.taskservice.repository.TaskRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Time;
 import java.util.List;
 
 @Service
@@ -18,6 +19,7 @@ public class TaskService {
     private ProjetRest projetRest;
 
     public Task save(Task task) {
+        task.setHeurs(new Time(System.currentTimeMillis()));
         return taskRepo.save(task);
     }
 
@@ -40,6 +42,12 @@ public class TaskService {
         return task;
     }
 
+    public List<Task> getTaskByProjectId(Integer project_id) {
+        return taskRepo.findByProjectId(project_id);
+    }
+    public List<Task> getAllTask() {
+        return taskRepo.findAll();
+    }
     public List<Task> findAll() {
         List<Task> taskList= taskRepo.findAll();
         for (Task task:taskList){

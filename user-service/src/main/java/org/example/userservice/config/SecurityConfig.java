@@ -40,7 +40,7 @@ public class SecurityConfig  {
                                 .requestMatchers("/api/auth/login").permitAll()
                                 .requestMatchers("/api/auth/signup").permitAll()
 
-                                .anyRequest().authenticated()
+                                .anyRequest().permitAll()
 
                 )
                 .formLogin(formLogin ->formLogin.disable());

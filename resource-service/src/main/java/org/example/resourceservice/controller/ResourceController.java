@@ -34,6 +34,10 @@ public class ResourceController {
         return resourceService.findById(id);
     }
 
+    @GetMapping("get_all_resources_by_task_id/{task_id}")
+    public List<Resource> getAllResources(@PathVariable Integer task_id) {
+        return resourceService.getAllResourcesByTaskId(task_id);
+    }
     @DeleteMapping("delete/{id}")
     public String delete(@PathVariable Integer id) {
         resourceService.delete(id);

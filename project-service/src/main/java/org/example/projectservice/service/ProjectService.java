@@ -5,6 +5,8 @@ import org.example.projectservice.repository.ProjectRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Time;
+import java.sql.Timestamp;
 import java.util.List;
 
 @Service
@@ -14,6 +16,7 @@ public class ProjectService {
     private ProjectRepo projectRepo;
 
     public Project save(Project project) {
+        project.setHeurs(new Time(System.currentTimeMillis()));
         return projectRepo.save(project);
     }
 

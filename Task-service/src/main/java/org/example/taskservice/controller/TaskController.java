@@ -24,6 +24,14 @@ public class TaskController {
         taskService.update(id, task);
         return "The Task has been updated";
     }
+    @GetMapping("get_all_project_id/{project_id}")
+    public List<Task> getAllTasks(@PathVariable Integer project_id) {
+        return taskService.getTaskByProjectId(project_id);
+    }
+    @GetMapping("get_all_task")
+    public List<Task> getAllTask() {
+        return taskService.getAllTask();
+    }
 
     @GetMapping("get+all")
     public List<Task> getAllTasks() {

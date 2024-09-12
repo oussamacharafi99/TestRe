@@ -23,8 +23,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(expressionInterceptUrlRegistry ->
                                 expressionInterceptUrlRegistry
 
-                                        .anyRequest().authenticated()
-
+                                        .anyRequest().permitAll()
                 )
                 .formLogin(formLogin ->formLogin.disable());
         http.addFilterBefore(new JwtAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class);
