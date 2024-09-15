@@ -2,7 +2,7 @@ spring:
   application:
     name: user-service
   datasource:
-    url: jdbc:mysql://localhost:3306/construction_user?createDatabaseIfNotExist=True
+    url: jdbc:mysql://user-db:3306/construction_user?createDatabaseIfNotExist=True
     username: root
     password:
   jpa:
