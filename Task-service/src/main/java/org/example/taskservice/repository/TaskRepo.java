@@ -13,4 +13,6 @@ public interface TaskRepo extends JpaRepository<Task, Integer> {
 
     @Query(value = "select * from task where project_id=?" , nativeQuery = true)
     List<Task> findByProjectId(Integer projectId);
+
+    void deleteTaskByProjectId(Integer projectId);
 }

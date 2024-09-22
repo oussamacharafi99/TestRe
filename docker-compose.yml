@@ -1,18 +1,18 @@
 version: '3.8'
 services:
-  # Eureka Discovery Service
+  # Service de découverte Eureka
   discovery-service:
-    build: ./discovery-service
+    image: oussamacharafi/discovery-service:latest
     ports:
-      - "8761:8761"  # Eureka Discovery service port
+      - "8761:8761"  # Port du service Eureka Discovery
     networks:
       - microservices-net
 
-  # Gateway Service
+  # Service de passerelle (Gateway)
   gateway-service:
-    build: ./gateway-service
+    image: oussamacharafi/gateway-service:latest
     ports:
-      - "8888:8888"  # Gateway port
+      - "8888:8888"  # Port de la passerelle
     depends_on:
       - discovery-service
     environment:
@@ -20,9 +20,9 @@ services:
     networks:
       - microservices-net
 
-  # Project Service
+  # Service de gestion de projets
   project-service:
-    build: ./project-service
+    image: oussamacharafi/project-service:latest
     ports:
       - "8081:8081"
     environment:
@@ -36,9 +36,9 @@ services:
     networks:
       - microservices-net
 
-  # Task Service
+  # Service de gestion des tâches
   tache-service:
-    build: ./task-service
+    image: oussamacharafi/task-service:latest
     ports:
       - "8082:8082"
     environment:
@@ -52,9 +52,9 @@ services:
     networks:
       - microservices-net
 
-  # Resource Service
+  # Service de gestion des ressources
   resource-service:
-    build: ./resource-service
+    image: oussamacharafi/resource-service:latest
     ports:
       - "8083:8083"
     environment:
@@ -68,14 +68,14 @@ services:
     networks:
       - microservices-net
 
-  # User Service
+  # Service utilisateur
   user-service:
-    build: ./user-service
+    image: oussamacharafi/user-service:latest
     ports:
       - "8087:8087"
     environment:
       - eureka.client.serviceUrl.defaultZone=http://discovery-service:8761/eureka/
-      - SPRING_DATASOURCE_URL=jdbc:mysql://user-db:3306/construction_user
+      - SPRING_DATASOURCE_URL=jdbc:mysql://userdb:3306/construction_user
       - SPRING_DATASOURCE_USERNAME=root
       - SPRING_DATASOURCE_PASSWORD=
     depends_on:
@@ -87,42 +87,38 @@ services:
       restart_policy:
         condition: on-failure
 
-  # Databases for each service
+  # Bases de données pour chaque service
   projetdb:
-    image: "mysql:8"
+    image: "mysql:latest"
     environment:
       MYSQL_DATABASE: construction_project
-      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
     volumes:
       - projet-db:/var/lib/mysql
     networks:
       - microservices-net
 
   ressourcedb:
-    image: "mysql:8"
+    image: "mysql:latest"
     environment:
       MYSQL_DATABASE: construction_resource
-      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
     volumes:
       - ressource-db:/var/lib/mysql
     networks:
       - microservices-net
 
   tachedb:
-    image: "mysql:8"
+    image: "mysql:latest"
     environment:
       MYSQL_DATABASE: construction_task
-      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
     volumes:
       - tache-db:/var/lib/mysql
     networks:
       - microservices-net
 
   userdb:
-    image: "mysql:8"
+    image: "mysql:latest"
     environment:
       MYSQL_DATABASE: construction_user
-      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
     volumes:
       - user-db:/var/lib/mysql
     networks:

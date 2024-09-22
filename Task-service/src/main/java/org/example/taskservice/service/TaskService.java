@@ -60,4 +60,9 @@ public class TaskService {
     public void deleteById(Integer id) {
         taskRepo.deleteById(id);
     }
+
+    public String DeleteTaskByProjectId(Integer id){
+        taskRepo.deleteTaskByProjectId(id);
+        return "the project deleted ";
+    }
 }

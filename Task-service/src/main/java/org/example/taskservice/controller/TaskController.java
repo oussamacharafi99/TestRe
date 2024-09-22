@@ -48,4 +48,9 @@ public class TaskController {
         taskService.deleteById(id);
         return "The Task has been deleted";
     }
+
+    @DeleteMapping("delete+task+by+project/{id}")
+    public String deleteTaskByProjectId(@PathVariable Integer id) {
+        return taskService.DeleteTaskByProjectId(id);
+    }
 }

@@ -1,6 +1,7 @@
 package org.example.projectservice.service;
 
 import org.example.projectservice.model.Project;
+import org.example.projectservice.openfeign.TaskRes;
 import org.example.projectservice.repository.ProjectRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,6 +15,9 @@ public class ProjectService {
 
     @Autowired
     private ProjectRepo projectRepo;
+
+    @Autowired
+    private TaskRes taskRes;
 
     public Project save(Project project) {
         project.setHeurs(new Time(System.currentTimeMillis()));
@@ -30,6 +34,7 @@ public class ProjectService {
 
     public void deleteProjectById(int id) {
         projectRepo.deleteById(id);
+        taskRes.deleteTaskByProjectId(id);
     }
 
     public Project updateProjectById(int id, Project project) {
@@ -43,5 +48,7 @@ public class ProjectService {
 
         return projectRepo.save(updatedProject);
     }
+
+
 
 }
