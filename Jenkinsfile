@@ -14,7 +14,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/oussamacharafi99/CONSTRUCTIONXPERT-SERVICES---MICROSERVICES.git'
+                git branch: 'jenkins', url: 'https://github.com/oussamacharafi99/CONSTRUCTIONXPERT-SERVICES---MICROSERVICES.git'
             }
         }
 
