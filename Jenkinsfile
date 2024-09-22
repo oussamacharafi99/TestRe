@@ -127,7 +127,7 @@ pipeline {
                         dir('user-service') {
                             script {
                                 def dockerImage = docker.build("oussamacharafi/user-service:${env.TAG_VERSION ?: 'latest'}")
-                                docker.withRegistry('https://index.docker.io/v1/', 'DockerHubId') {
+                                docker.withRegistry('https://index.docker.io/v1/', 'docker-hub-credentials') {
                                     dockerImage.push()
                                 }
                             }
@@ -140,7 +140,7 @@ pipeline {
                         dir('project-service') {
                             script {
                                 def dockerImage = docker.build("oussamacharafi/project-service:${env.TAG_VERSION ?: 'latest'}")
-                                docker.withRegistry('https://index.docker.io/v1/', 'DockerHubId') {
+                                docker.withRegistry('https://index.docker.io/v1/', 'docker-hub-credentials') {
                                     dockerImage.push()
                                 }
                             }
@@ -153,7 +153,7 @@ pipeline {
                         dir('task-service') {
                             script {
                                 def dockerImage = docker.build("oussamacharafi/task-service:${env.TAG_VERSION ?: 'latest'}")
-                                docker.withRegistry('https://index.docker.io/v1/', 'DockerHubId') {
+                                docker.withRegistry('https://index.docker.io/v1/', 'docker-hub-credentials') {
                                     dockerImage.push()
                                 }
                             }
@@ -166,7 +166,7 @@ pipeline {
                         dir('resource-service') {
                             script {
                                 def dockerImage = docker.build("oussamacharafi/resource-service:${env.TAG_VERSION ?: 'latest'}")
-                                docker.withRegistry('https://index.docker.io/v1/', 'DockerHubId') {
+                                docker.withRegistry('https://index.docker.io/v1/', 'docker-hub-credentials') {
                                     dockerImage.push()
                                 }
                             }
@@ -179,7 +179,7 @@ pipeline {
                         dir('gateway-service') {
                             script {
                                 def dockerImage = docker.build("oussamacharafi/gateway-service:${env.TAG_VERSION ?: 'latest'}")
-                                docker.withRegistry('https://index.docker.io/v1/', 'DockerHubId') {
+                                docker.withRegistry('https://index.docker.io/v1/', 'docker-hub-credentials') {
                                     dockerImage.push()
                                 }
                             }
@@ -192,7 +192,7 @@ pipeline {
                         dir('discovery-service') {
                             script {
                                 def dockerImage = docker.build("oussamacharafi/discovery-service:${env.TAG_VERSION ?: 'latest'}")
-                                docker.withRegistry('https://index.docker.io/v1/', 'DockerHubId') {
+                                docker.withRegistry('https://index.docker.io/v1/', 'docker-hub-credentials') {
                                     dockerImage.push()
                                 }
                             }
