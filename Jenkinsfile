@@ -7,14 +7,14 @@ pipeline {
 
     environment {
         DOCKERHUB_CREDENTIALS = credentials('docker-hub-credentials')
-        SONARQUBE_TOKEN = 'squ_d49ee140f0dc8a4ffc8e46e7daecc8b5ac516ee9'
+        SONARQUBE_TOKEN = 'squ_b8dfc6a136619a3402ca80b2bd649262e24b8b44'
         SONARQUBE_SERVER = 'http://localhost:9000'
     }
 
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'jenkins', url: 'https://github.com/oussamacharafi99/CONSTRUCTIONXPERT-SERVICES---MICROSERVICES.git'
+                git branch: 'main', url: 'https://github.com/oussamacharafi99/TestRe.git'
             }
         }
 
