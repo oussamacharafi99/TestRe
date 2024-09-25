@@ -15,10 +15,11 @@ import java.time.LocalTime;
 
 @Setter
 @Getter
-@AllArgsConstructor
 @NoArgsConstructor
 @Entity
 public class Task {
+
+    
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
