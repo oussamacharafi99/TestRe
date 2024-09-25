@@ -92,6 +92,7 @@ services:
     image: "mysql:latest"
     environment:
       MYSQL_DATABASE: construction_project
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
     volumes:
       - projet-db:/var/lib/mysql
     networks:
@@ -101,6 +102,7 @@ services:
     image: "mysql:latest"
     environment:
       MYSQL_DATABASE: construction_resource
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
     volumes:
       - ressource-db:/var/lib/mysql
     networks:
@@ -110,6 +112,7 @@ services:
     image: "mysql:latest"
     environment:
       MYSQL_DATABASE: construction_task
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
     volumes:
       - tache-db:/var/lib/mysql
     networks:
@@ -119,6 +122,7 @@ services:
     image: "mysql:latest"
     environment:
       MYSQL_DATABASE: construction_user
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
     volumes:
       - user-db:/var/lib/mysql
     networks:
